@@ -1,7 +1,8 @@
 package Modelo;
 
 public class Perro extends Tamagotchi implements  TamagotchiActions {
-
+private int nivelImperactividad;
+private int nivelAgresividad;
     @Override
     public void comer(int alimento) {
 
@@ -14,6 +15,6 @@ public class Perro extends Tamagotchi implements  TamagotchiActions {
         }
     public int dormir(int horasdesuenio){
         return 0;
-        1
+
     }
 }
