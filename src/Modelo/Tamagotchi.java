@@ -48,4 +48,15 @@ public class Tamagotchi {
         return salud;
     }
 
+    public Tamagotchi(String nombre, int hambre, int energia,int felicidad, int salud){
+        this.nombre=nombre;
+        this.hambre=hambre;
+        this.energia=energia;
+        this.felicidad=felicidad;
+        this.salud=salud;
+    }
+
+
+
+
 }
