@@ -14,5 +14,6 @@ public class Perro extends Tamagotchi implements  TamagotchiActions {
         }
     public int dormir(int horasdesuenio){
         return 0;
+        1
     }
 }
