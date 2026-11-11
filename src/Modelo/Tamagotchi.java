@@ -47,7 +47,10 @@ public class Tamagotchi {
     public int getSalud() {
         return salud;
     }
+    public int dormir(int horasdesuenio){
+        return 0;
 
+    }
     public Tamagotchi(String nombre, int hambre, int energia,int felicidad, int salud){
         this.nombre=nombre;
         this.hambre=hambre;
