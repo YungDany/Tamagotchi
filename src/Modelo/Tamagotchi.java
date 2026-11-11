@@ -9,4 +9,6 @@ public class Tamagotchi {
     protected int salud;
 
 
+
+
 }
