@@ -1,12 +1,13 @@
 package Modelo;
 
-public class Tamagotchi {
+public abstract class Tamagotchi implements TamagotchiActions{
 
     protected String nombre;
     protected int hambre;
     protected int energia;
     protected int felicidad;
     protected int salud;
+    protected boolean durmiendo;
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -51,13 +52,77 @@ public class Tamagotchi {
         return 0;
 
     }
-    public Tamagotchi(String nombre, int hambre, int energia,int felicidad, int salud){
+
+    public void setDurmiendo(boolean durmiendo){
+        this.durmiendo=durmiendo;
+    }
+
+    public boolean estaDurmiendo(){
+        return durmiendo;
+    }
+    public Tamagotchi(String nombre, int hambre, int energia,int felicidad, int salud,boolean durmiendo){
         this.nombre=nombre;
         this.hambre=hambre;
         this.energia=energia;
         this.felicidad=felicidad;
         this.salud=salud;
+        this.durmiendo=durmiendo;
     }
+
+    public Tamagotchi(String nombre){
+        this.nombre="Mike";
+        this.hambre=30;
+        this.energia=80;
+        this.felicidad=70;
+        this.salud=100;
+        this.durmiendo=false;
+    }
+
+    protected int limitarRango(int valor){
+        return Math.max(0,Math.min(100,valor));
+    }
+
+    public EstadoAnimo obtenerEstadoAnimo(){
+        if(salud<30||hambre>85||energia<15){
+            return EstadoAnimo.CRITICO;
+        }
+        if(salud>60||<35||felicidad<40){
+            return EstadoAnimo.REQUIERE_ATENCION;
+        }
+        if(salud>80&&energia>=60&&hambre<=30){
+            return EstadoAnimo.EXCELENTE;
+        }
+        return EstadoAnimo.NORMAL;
+    }
+
+    public void pasarTiempo(){
+        if(durmiendo){
+            setEnergia(this.energia+25);
+            setHambre(this.hambre+5);
+            if(this.energia>=100){
+                this.durmiendo=false;
+            }
+        }else{
+            setHambre(this.hambre+10);
+            setEnergia(this.energia-8);
+            setFelicidad(this.felicidad-7);
+            if(this.hambre>=90||this.energia<=10){
+                setSalud(this.salud-10);
+            }
+        }
+    }
+
+    @Override
+    public void dormir(){
+        this.durmiendo=true;
+        setEnergia(this.energia+40);
+    }
+
+    public abstract String obtenerSprite();
+    public abstract String obtenerDetallesEspecificos();
+
+
+
 
 
 
