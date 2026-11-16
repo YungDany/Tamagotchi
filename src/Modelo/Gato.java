@@ -14,6 +14,8 @@ public class Gato extends Tamagotchi implements TamagotchiActions {
 
     public Gato(String nombre) {
         super(nombre);
+        this.nivelPereza = 50;
+        this.nivelIrritabilidad =35;
     }
 
     @Override
@@ -23,27 +25,39 @@ public class Gato extends Tamagotchi implements TamagotchiActions {
 
     @Override
     public String obtenerDetallesEspecificos() {
-        return "";
+        return "Raza: Perro | Irritabilidad: " + nivelIrritabilidad + " | Pereza: " + nivelPereza;
     }
 
     @Override
     public void alimentar(TipoAlimento alimento) {
-
+        setHambre(hambre - alimento.getReduccionHambre());
+        setEnergia(energia + alimento.getEnergiaBase());
+        //el gato recibe comida y felicidad
+        setSalud(salud + 5);
+        setFelicidad(felicidad + 10);
+        System.out.println(nombre + " ha comido " + alimento.getNombre());
     }
 
     @Override
     public void jugar(TipoJuego juego) {
+        // Aumenta felicidad y gasta energía / sube hambre según el tipo de juego
+        setFelicidad(felicidad + juego.getAumentoFelicidad());
 
+        setEnergia(energia - juego.getGastoEnergetico());
+
+        setHambre(hambre + 15);
+        System.out.println(nombre + " jugó a: " + juego.getNombre());
     }
 
     @Override
     public String mostrarComportamientoUnico() {
-        return "";
+        return nombre + "se lame la pata con mucha calma(Nivel: " + nivelPereza + ").";
+
     }
 
     @Override
     public String mostrarComportamientoUnico2() {
-        return "";
+        return nombre + "Esta aullando con fuerza(Nivel: " + nivelIrritabilidad + ").";
     }
 }
 

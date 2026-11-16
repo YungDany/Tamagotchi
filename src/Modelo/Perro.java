@@ -41,13 +41,13 @@ public class Perro extends Tamagotchi implements TamagotchiActions {
 
         @Override
         public String mostrarComportamientoUnico() {
-            return nombre + " está emocionado por verte (Nivel: " + nivelImperactividad + ").";
+            return nombre + "  (Nivel: " + nivelImperactividad + ").";
         }
     @Override
     public String mostrarComportamientoUnico2() {
         return nombre + "Esta persiguiendo su cola (Nivel: " + nivelImperactividad + ").";
-    }
 
+    }
 
         @Override
         public String obtenDraw() {
