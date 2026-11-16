@@ -86,7 +86,7 @@ public abstract class Tamagotchi implements TamagotchiActions{
         if(salud<30||hambre>85||energia<15){
             return EstadoAnimo.CRITICO;
         }
-        if(salud>60||<35||felicidad<40){
+        if(salud>60||salud<35||felicidad<40){
             return EstadoAnimo.REQUIERE_ATENCION;
         }
         if(salud>80&&energia>=60&&hambre<=30){
@@ -118,7 +118,7 @@ public abstract class Tamagotchi implements TamagotchiActions{
         setEnergia(this.energia+40);
     }
 
-    public abstract String obtenerSprite();
+    public abstract String obtenDraw();
     public abstract String obtenerDetallesEspecificos();
 
 

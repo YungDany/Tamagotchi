@@ -6,4 +6,6 @@ public interface TamagotchiActions {
     void jugar(TipoJuego juego);
     void dormir();
     String mostrarComportamientoUnico();
+    String mostrarComportamientoUnico2();
+
 }
