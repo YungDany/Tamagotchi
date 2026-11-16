@@ -2,7 +2,8 @@ package Modelo;
 
 public interface TamagotchiActions {
 
-    public void comer(int alimento);
-    public void jugar();
-
+    void alimentar(TipoAlimento alimento);
+    void jugar(TipoJuego juego);
+    void dormir();
+    String mostrarComportamientoUnico();
 }
