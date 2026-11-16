@@ -1,4 +1,7 @@
 package Modelo;
 
-public class Gato {
+public class Gato extends Tamagotchi implements TamagotchiActions {
+
+    }
 }
+
