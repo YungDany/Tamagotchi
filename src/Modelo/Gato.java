@@ -25,7 +25,7 @@ public class Gato extends Tamagotchi implements TamagotchiActions {
 
     @Override
     public String obtenerDetallesEspecificos() {
-        return "Raza: Perro | Irritabilidad: " + nivelIrritabilidad + " | Pereza: " + nivelPereza;
+        return "Raza: Gato | Irritabilidad: " + nivelIrritabilidad + " | Pereza: " + nivelPereza;
     }
 
     @Override
@@ -58,6 +58,13 @@ public class Gato extends Tamagotchi implements TamagotchiActions {
     @Override
     public String mostrarComportamientoUnico2() {
         return nombre + "Esta aullando con fuerza(Nivel: " + nivelIrritabilidad + ").";
+    }
+
+    @Override
+    public void dormir(){
+        super.dormir();
+        setEnergia(energia+15);
+        this.nivelPereza=Math.min(100,this.nivelPereza+10);
     }
 }
 
