@@ -76,3 +76,4 @@ public class Perro extends Tamagotchi implements TamagotchiActions {
             this.nivelAgresividad = limitarRango(nivelAgresividad);
         }
     }
+//
