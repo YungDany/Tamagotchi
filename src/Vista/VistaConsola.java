@@ -8,6 +8,7 @@ public class VistaConsola {
     private final Scanner scanner;
 
     public VistaConsola(){
+
         this.scanner=new Scanner(System.in);
     }
 
@@ -18,21 +19,21 @@ public class VistaConsola {
 
     public int mostrarMenuPrincipal(){
         System.out.println("\n Menú Principal \n");
-        System.out.println("1. Adoptar un nuevo tamagotchi");
-        System.out.println("2. Interactuar con el tamagotchi");
-        System.out.println("3. Ver el estado de todos los tamagotchis");
-        System.out.println("4. Avanzar el tiempo (Simulador de horas");
+        System.out.println("1. Adoptar un nuevo tamagotchi\n");
+        System.out.println("2. Interactuar con el tamagotchi\n");
+        System.out.println("3. Ver el estado de todos los tamagotchis\n");
+        System.out.println("4. Avanzar el tiempo (Simulador de horas\n");
         System.out.println("5. Salir");
         return leerEntero("Seleccione una opción: ",1,5);
     }
 
     public int seleccionarUnaEspecie(){
-        System.out.println("Escoja una especie: ");
-        System.out.println("1. Perro");
-        System.out.println("2. Gato");
-        System.out.println("3. Cuyo");
-        System.out.println("4. Muñeca");
-        System.out.println("5. Capibara");
+        System.out.println("Seleccione una especie: ");
+        System.out.println("1. Perro\n");
+        System.out.println("2. Gato\n");
+        System.out.println("3. Cuyo\n");
+        System.out.println("4. Muñeca\n");
+        System.out.println("5. Capibara\n");
         return leerEntero("Especie: ",1,5);
     }
 

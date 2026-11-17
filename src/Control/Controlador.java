@@ -10,5 +10,5 @@ public class Controlador {
         this.vista=new vista;
 
     }
-
+//
 }
