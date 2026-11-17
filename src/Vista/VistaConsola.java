@@ -123,6 +123,6 @@ public class VistaConsola {
         System.out.println(" Felicidad: " + generarBarra(t.getFelicidad()) + " " + t.getFelicidad() + "/100");
         System.out.println(" Salud:     " + generarBarra(t.getSalud()) + " " + t.getSalud() + "/100");
     }
-
+//
 
 }
