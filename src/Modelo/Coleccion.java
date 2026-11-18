@@ -45,12 +45,12 @@ public class Coleccion {
                 .count();
     }
 
-    // Avanza el tiempo para todos usando referencia a método
+    // Avanza el tiempo para todos
     public void avanzarTiempoTodos() {
         misJuguetes.forEach(Tamagotchi::pasarTiempo);
     }
 
-    //Método que muestra toda la colección de mascotas
+    //muestra los tamagochis existentes
 
     public String listaJuguetes() {
         if (misJuguetes.isEmpty()) {

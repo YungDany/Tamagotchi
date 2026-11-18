@@ -70,7 +70,7 @@ public abstract class Tamagotchi implements TamagotchiActions{
     }
 
     public Tamagotchi(String nombre){
-        this.nombre="Mike";
+        this.nombre=nombre;
         this.hambre=30;
         this.energia=80;
         this.felicidad=70;
@@ -86,7 +86,7 @@ public abstract class Tamagotchi implements TamagotchiActions{
         if(salud<30||hambre>85||energia<15){
             return EstadoAnimo.CRITICO;
         }
-        if(salud>60||salud<35||felicidad<40){
+        if(hambre>60||energia<35||felicidad<40){
             return EstadoAnimo.REQUIERE_ATENCION;
         }
         if(salud>80&&energia>=60&&hambre<=30){
@@ -109,6 +109,7 @@ public abstract class Tamagotchi implements TamagotchiActions{
             if(this.hambre>=90||this.energia<=10){
                 setSalud(this.salud-10);
             }
+            //agregar to String
         }
     }
 

@@ -1,5 +1,5 @@
 package Modelo;
-
+//retirar tamagotchi actions
 public class Perro extends Tamagotchi implements TamagotchiActions {
     private int nivelImperactividad;
     private int nivelAgresividad;
@@ -41,7 +41,7 @@ public class Perro extends Tamagotchi implements TamagotchiActions {
 
         @Override
         public String mostrarComportamientoUnico() {
-            return nombre + "  (Nivel: " + nivelImperactividad + ").";
+            return nombre + " Corre acelerado por verte(Nivel: " + nivelAgresividad + ").";
         }
     @Override
     public String mostrarComportamientoUnico2() {
@@ -51,7 +51,7 @@ public class Perro extends Tamagotchi implements TamagotchiActions {
 
         @Override
         public String obtenDraw() {
-            return " 🐶 [o.0] ";
+            return "";
         }
 
         @Override
@@ -61,6 +61,7 @@ public class Perro extends Tamagotchi implements TamagotchiActions {
 
 
         public int getNivelImperactividad() {
+
             return nivelImperactividad;
         }
 
