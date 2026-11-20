@@ -23,7 +23,7 @@ public class Gato extends Tamagotchi{
 
     @Override
     public String obtenDraw() {
-        return "";
+        return "🐱";
     }
 
     @Override

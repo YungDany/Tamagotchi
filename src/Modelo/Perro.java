@@ -82,7 +82,7 @@ public class Perro extends Tamagotchi{
         }
         @Override
         public String obtenDraw() {
-            return "";
+            return "🐶";
         }
 
         @Override
