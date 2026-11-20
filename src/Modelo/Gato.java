@@ -50,17 +50,25 @@ public class Gato extends Tamagotchi{
     }
 
     @Override
-    public String mostrarComportamientoUnico() {
+    public String accion1() {
         return nombre + "se lame la pata con mucha calma(Nivel: " + nivelPereza + ").";
 
     }
 
     @Override
-    public String mostrarComportamientoUnico2() {
+    public String accion2() {
         return nombre + "Esta aullando con fuerza(Nivel: " + nivelIrritabilidad + ").";
     }
+    public String accion3() {
+        return "";
+    }
+    public String accion4() {
+        return "";
+    }
 
-    @Override
+
+
+        @Override
     public void dormir(){
         super.dormir();
         setEnergia(energia+15);
