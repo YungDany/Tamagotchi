@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Gato extends Tamagotchi implements TamagotchiActions {
+public class Gato extends Tamagotchi{
  private int nivelIrritabilidad;
  private int nivelPereza;
 

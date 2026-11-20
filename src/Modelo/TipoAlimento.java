@@ -3,7 +3,9 @@ package Modelo;
 public enum TipoAlimento {
     CROQUETAS("Croquetas",30,15),
     FRUTA("Fruta",20,20),
-    DULCES("Dulces energéticos",10,35);
+    DULCES("Dulces energéticos",10,35),
+    CESPED("Cesped",35,25),
+    TE_FAKE("Te",25,5);
 
     private final String nombre;
     private final int reduccionHambre;

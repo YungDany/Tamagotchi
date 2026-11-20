@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Cuyo extends Tamagotchi implements TamagotchiActions {
+public class Cuyo extends Tamagotchi{
 
     public Cuyo(String nombre, int hambre, int energia, int felicidad, int salud, boolean durmiendo) {
         super(nombre, hambre, energia, felicidad, salud, durmiendo);

@@ -5,7 +5,9 @@ public interface TamagotchiActions {
     void alimentar(TipoAlimento alimento);
     void jugar(TipoJuego juego);
     void dormir();
-    String mostrarComportamientoUnico();
-    String mostrarComportamientoUnico2();
+    String accion1();
+    String accion2();
+    String accion3();
+    String accion4();
 
 }

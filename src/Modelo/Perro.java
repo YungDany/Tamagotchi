@@ -1,6 +1,6 @@
 package Modelo;
 //retirar tamagotchi actions
-public class Perro extends Tamagotchi implements TamagotchiActions {
+public class Perro extends Tamagotchi{
     private int nivelImperactividad;
     private int nivelAgresividad;
 
@@ -18,42 +18,76 @@ public class Perro extends Tamagotchi implements TamagotchiActions {
 
         @Override
         public void alimentar(TipoAlimento alimento) {
+            int bonusEnergy = switch(alimento) {
+                case CROQUETAS -> 20;
+                case FRUTA -> 0;
+                case DULCES -> 10;
+                case CESPED -> 0;
+                case TE_FAKE -> 0;
+            };
+            int bonusFelicidad= switch(alimento) {
+                case CROQUETAS -> 10;
+                case FRUTA -> 5;
+                case DULCES -> 12;
+                case CESPED -> 0;
+                case TE_FAKE -> 0;
+            };
+            int bonusLife= switch(alimento) {
+                case CROQUETAS -> 5;
+                case FRUTA -> 5;
+                case DULCES -> -8;
+                case CESPED -> 0;
+                case TE_FAKE -> -5;
+            };
+    setHambre(limitarRango(hambre-alimento.getReduccionHambre()));
+    setEnergia(limitarRango(energia+alimento.getEnergiaBase()+bonusEnergy));
+    setFelicidad(limitarRango(felicidad+bonusFelicidad));
+    setSalud(limitarRango(salud+bonusLife));
 
-            setHambre(hambre - alimento.getReduccionHambre());
 
-            setEnergia(energia + alimento.getEnergiaBase());
-            // El perro gana salud y felicidad
-            setSalud(salud + 5);
-            setFelicidad(felicidad + 10);
-            System.out.println(nombre + " ha comido " + alimento.getNombre());
+
         }
 
         @Override
         public void jugar(TipoJuego juego) {
-            // Aumenta felicidad y gasta energía / sube hambre según el tipo de juego
-            setFelicidad(felicidad + juego.getAumentoFelicidad());
-
-            setEnergia(energia - juego.getGastoEnergetico());
-
-            setHambre(hambre + 15);
-            System.out.println(nombre + " jugó a: " + juego.getNombre());
+           int bonusGame= switch (juego){
+               case PERSEGUIR_PELOTA -> 7;
+               case TRUCOS -> 5;
+               case ESCONDIDAS ->3;
+           };
+            setFelicidad(limitarRango(felicidad + juego.getAumentoFelicidad() + bonusGame));
+            setEnergia(limitarRango(energia - juego.getGastoEnergetico()));
+            setHambre(limitarRango(hambre + 10));
+            setNivelImperactividad(nivelImperactividad + 3);
         }
 
         @Override
-        public String mostrarComportamientoUnico() {
-            return nombre + " Corre acelerado por verte(Nivel: " + nivelAgresividad + ").";
+        public String accion1() {
+            return nombre + "Ansioso de que regresaras(Nivel: " + nivelAgresividad + ").";
         }
     @Override
-    public String mostrarComportamientoUnico2() {
+    public String accion2() {
         return nombre + "Esta persiguiendo su cola (Nivel: " + nivelImperactividad + ").";
-
     }
+        @Override
+        public String accion3(){
+            return nombre + "guau guau (Nivel: " + nivelAgresividad + ").";
+        }
+        @Override
 
+        public String accion4(){
+            return nombre + "Esta escarbando la tierra (Nivel: " + nivelImperactividad + ").";
+
+        }
         @Override
         public String obtenDraw() {
             return "";
         }
 
+        @Override
+        public String toString(){
+            return super.toString()+"|Especie: Tamagotchi";
+        }
         @Override
         public String obtenerDetallesEspecificos() {
             return "Raza: Perro | Imperactividad: " + nivelImperactividad + " | Agresividad: " + nivelAgresividad;
@@ -77,3 +111,4 @@ public class Perro extends Tamagotchi implements TamagotchiActions {
             this.nivelAgresividad = limitarRango(nivelAgresividad);
         }
     }
+

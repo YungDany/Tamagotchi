@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Capibara extends Tamagotchi implements TamagotchiActions {
+public class Capibara extends Tamagotchi{
 
     public Capibara(String nombre, int hambre, int energia, int felicidad, int salud, boolean durmiendo) {
         super(nombre, hambre, energia, felicidad, salud, durmiendo);

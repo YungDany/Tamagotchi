@@ -122,10 +122,14 @@ public abstract class Tamagotchi implements TamagotchiActions{
     public abstract String obtenDraw();
     public abstract String obtenerDetallesEspecificos();
 
-
-
-
-
-
+public String toString() {
+    return (nombre+"|Hambre: "+hambre+"|Energia: "+ energia+"Felicidad: "+felicidad+"Salud: "+salud+"Despierto: "+durmiendo);
+}
 
 }
+
+
+
+
+
+
