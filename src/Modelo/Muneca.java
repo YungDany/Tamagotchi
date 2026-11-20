@@ -1,13 +1,18 @@
 package Modelo;
 
     public class Muneca extends Tamagotchi{
-
-        public Muneca(String nombre, int hambre, int energia, int felicidad, int salud, boolean durmiendo) {
+        private int nivelCoqueta;
+        private int nivelCaprichosa;
+        public Muneca(String nombre, int hambre, int energia, int felicidad, int salud, boolean durmiendo,int nivelCaprichosa,int nivelCoqueta) {
             super(nombre, hambre, energia, felicidad, salud, durmiendo);
+            this.nivelCaprichosa=limitarRango(nivelCaprichosa);
+            this.nivelCoqueta=limitarRango(nivelCoqueta);
         }
 
         public Muneca(String nombre) {
             super(nombre);
+            nivelCoqueta=40;
+            nivelCaprichosa=60;
         }
 
         @Override
@@ -17,27 +22,81 @@ package Modelo;
 
         @Override
         public String obtenerDetallesEspecificos() {
-            return "";
+            return "Especie: Muñeca | Coqueta: " + nivelCoqueta + " | Caprichosa: " + nivelCaprichosa;
         }
 
         @Override
         public void alimentar(TipoAlimento alimento) {
+            int bonusEnergy = switch(alimento) {
+                case CROQUETAS -> 0;
+                case FRUTA -> 4;
+                case DULCES -> 3;
+                case CESPED -> 0;
+                case TE_FAKE ->14 ;
+            };
+            int bonusFelicidad= switch(alimento) {
+                case CROQUETAS ->0 ;
+                case FRUTA ->2 ;
+                case DULCES ->3 ;
+                case CESPED -> 0;
+                case TE_FAKE -> 15;
+            };
+            int bonusLife= switch(alimento) {
+                case CROQUETAS ->0;
+                case FRUTA ->3 ;
+                case DULCES ->1 ;
+                case CESPED -> 0;
+                case TE_FAKE -> 9;
+            };
+            setHambre(limitarRango(hambre-alimento.getReduccionHambre()));
+            setEnergia(limitarRango(energia+alimento.getEnergiaBase()+bonusEnergy));
+            setFelicidad(limitarRango(felicidad+bonusFelicidad));
+            setSalud(limitarRango(salud+bonusLife));
+
+
 
         }
 
         @Override
         public void jugar(TipoJuego juego) {
-
+            int bonusGame= switch (juego){
+                case PERSEGUIR_PELOTA ->0 ;
+                case TRUCOS ->5 ;
+                case ESCONDIDAS ->15;
+            };
+            setFelicidad(limitarRango(felicidad + juego.getAumentoFelicidad() + bonusGame));
+            setEnergia(limitarRango(energia - juego.getGastoEnergetico()));
+            setHambre(limitarRango(hambre +5 ));
+            setNivelCoqueta(nivelCoqueta +8 );
         }
 
         @Override
-        public String mostrarComportamientoUnico() {
-            return "";
+        public String accion1() {
+            return ("Se quemo con el te"+nivelCaprichosa);
         }
 
         @Override
-        public String mostrarComportamientoUnico2() {
-            return "";
+        public String accion2() {
+            return ("Le parece lindo tu cabello"+nivelCoqueta);
+        }
+        public String accion3() {
+            return ("le encanto su cambio de ropa"+nivelCoqueta);
+        }
+        public String accion4() {
+            return ("se molesto porque tomaste el te sola"+nivelCaprichosa);
+        }
+
+
+        public void setNivelCoqueta(int nivelCoqueta) {
+            this.nivelCoqueta = limitarRango(nivelCoqueta);
+        }
+
+        public void setNivelCaprichosa(int nivelCaprichosa) {
+            this.nivelCaprichosa = limitarRango(nivelCaprichosa) ;
+        }
+        @Override
+        public String toString(){
+            return super.toString()+"|Especie: Tamagotchi";
         }
     }
 

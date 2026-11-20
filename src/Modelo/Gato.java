@@ -30,23 +30,48 @@ public class Gato extends Tamagotchi{
 
     @Override
     public void alimentar(TipoAlimento alimento) {
-        setHambre(hambre - alimento.getReduccionHambre());
-        setEnergia(energia + alimento.getEnergiaBase());
-        //el gato recibe comida y felicidad
-        setSalud(salud + 5);
-        setFelicidad(felicidad + 10);
-        System.out.println(nombre + " ha comido " + alimento.getNombre());
+        int bonusEnergy = switch(alimento) {
+            case CROQUETAS ->18 ;
+            case FRUTA -> 5;
+            case DULCES -> 6;
+            case CESPED -> 0;
+            case TE_FAKE -> 0;
+        };
+        int bonusFelicidad= switch(alimento) {
+            case CROQUETAS ->15 ;
+            case FRUTA -> 2;
+            case DULCES -> 3;
+            case CESPED -> 0;
+            case TE_FAKE ->0 ;
+        };
+        int bonusLife= switch(alimento) {
+            case CROQUETAS ->9;
+            case FRUTA -> 3;
+            case DULCES ->-3 ;
+            case CESPED ->0 ;
+            case TE_FAKE ->0 ;
+        };
+        setHambre(limitarRango(hambre-alimento.getReduccionHambre()));
+        setEnergia(limitarRango(energia+alimento.getEnergiaBase()+bonusEnergy));
+        setFelicidad(limitarRango(felicidad+bonusFelicidad));
+        setSalud(limitarRango(salud+bonusLife));
+
+
+
     }
 
     @Override
     public void jugar(TipoJuego juego) {
-        // Aumenta felicidad y gasta energía / sube hambre según el tipo de juego
-        setFelicidad(felicidad + juego.getAumentoFelicidad());
-
-        setEnergia(energia - juego.getGastoEnergetico());
-
-        setHambre(hambre + 15);
-        System.out.println(nombre + " jugó a: " + juego.getNombre());
+        int bonusGame= switch (juego){
+            case PERSEGUIR_PELOTA ->2 ;
+            case TRUCOS ->5 ;
+            case ESCONDIDAS ->15;
+        };
+        setFelicidad(limitarRango(felicidad + juego.getAumentoFelicidad() + bonusGame));
+        setEnergia(limitarRango(energia - juego.getGastoEnergetico()));
+        setHambre(limitarRango(hambre +15 ));
+        setNivelPereza(nivelPereza -7 );
+        setNivelIrritabilidad(nivelIrritabilidad-9);
     }
 
     @Override
@@ -57,13 +82,13 @@ public class Gato extends Tamagotchi{
 
     @Override
     public String accion2() {
-        return nombre + "Esta aullando con fuerza(Nivel: " + nivelIrritabilidad + ").";
+        return nombre + "Esta maullando con fuerza(Nivel: " + nivelIrritabilidad + ").";
     }
     public String accion3() {
-        return "";
+        return "Esta ronroneando"+nivelPereza;
     }
     public String accion4() {
-        return "";
+        return "Esta sacudiendo su cola con fuerza"+nivelIrritabilidad;
     }
 
 
@@ -73,6 +98,18 @@ public class Gato extends Tamagotchi{
         super.dormir();
         setEnergia(energia+15);
         this.nivelPereza=Math.min(100,this.nivelPereza+10);
+    }
+
+    public void setNivelPereza(int nivelPereza) {
+        this.nivelPereza = nivelPereza;
+    }
+
+    public void setNivelIrritabilidad(int nivelIrritabilidad) {
+        this.nivelIrritabilidad = nivelIrritabilidad;
+    }
+    @Override
+    public String toString(){
+        return super.toString()+"|Especie: Tamagotchi";
     }
 }
 
