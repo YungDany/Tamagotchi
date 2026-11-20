@@ -62,10 +62,10 @@ public abstract class Tamagotchi implements TamagotchiActions{
     }
     public Tamagotchi(String nombre, int hambre, int energia,int felicidad, int salud,boolean durmiendo){
         this.nombre=nombre;
-        this.hambre=hambre;
-        this.energia=energia;
-        this.felicidad=felicidad;
-        this.salud=salud;
+        this.hambre=limitarRango(hambre);
+        this.energia=limitarRango(energia);
+        this.felicidad=limitarRango(felicidad);
+        this.salud=limitarRango(salud);
         this.durmiendo=durmiendo;
     }
 
