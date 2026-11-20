@@ -74,18 +74,19 @@ package Modelo;
 
         @Override
         public String accion1() {
-            return ("Se quemo con el te"+nivelCaprichosa);
+            return (nombre+" Esta aburrida(Nivel: "+nivelCaprichosa+").");
         }
 
         @Override
         public String accion2() {
-            return ("Le parece lindo tu cabello"+nivelCoqueta);
+            return (nombre+" Esta feliz(Nivel: "+nivelCoqueta+").");
         }
         public String accion3() {
-            return ("le encanto su cambio de ropa"+nivelCoqueta);
+            return (nombre+" Esta llorando(Nivel: "+nivelCaprichosa+").");
         }
+
         public String accion4() {
-            return ("se molesto porque tomaste el te sola"+nivelCaprichosa);
+            return (nombre+" Le encanto su cambio de ropa(Nivel: "+nivelCoqueta+").");
         }
 
 
@@ -98,7 +99,7 @@ package Modelo;
         }
         @Override
         public String toString(){
-            return super.toString()+"|Especie: Tamagotchi";
+            return super.toString() + " | Especie: Muñeca | Coqueta: " + nivelCoqueta + " | Caprichosa: " + nivelCaprichosa;
         }
     }
 

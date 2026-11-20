@@ -72,19 +72,19 @@ private int nivelChillido;
     }
     @Override
     public String accion1() {
-        return ("Se quedo Congelado"+nivelMiedo);
+        return (nombre+"Se quedo Congelado(Nivel: "+nivelMiedo+").");
 
     }
 
     @Override
     public String accion2() {
-        return ("cuy cuy"+nivelChillido);
+        return (nombre+"cuy cuy(Nivel: "+nivelChillido+").");
     }
     public String accion3() {
-        return ("esta roendo la madera"+nivelChillido);
+        return (nombre+"esta roendo la madera(Nivel: "+nivelChillido+").");
     }
     public String accion4() {
-        return ("le asusto el ruido de la puerta"+nivelMiedo);
+        return (nombre+"le asusto el ruido de la puerta(Nivel: "+nivelMiedo+").");
     }
 
     public void setNivelMiedo(int nivelMiedo) {
@@ -96,7 +96,7 @@ private int nivelChillido;
     }
     @Override
     public String toString(){
-        return super.toString()+"|Especie: Tamagotchi";
+        return super.toString() + " | Especie: Cuyo | Miedo: " + nivelMiedo + " | Chillido: " + nivelChillido;
     }
 }
 

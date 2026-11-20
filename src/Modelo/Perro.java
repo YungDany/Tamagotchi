@@ -1,5 +1,5 @@
 package Modelo;
-//retirar tamagotchi actions
+
 public class Perro extends Tamagotchi{
     private int nivelImperactividad;
     private int nivelAgresividad;
@@ -59,25 +59,25 @@ public class Perro extends Tamagotchi{
             setEnergia(limitarRango(energia - juego.getGastoEnergetico()));
             setHambre(limitarRango(hambre + 10));
             setNivelImperactividad(nivelImperactividad + 3);
-            IO.println(nombre +"jugo" +juego.getNombre());
+            IO.println(nombre + " jugo" + juego.getNombre());
         }
 
         @Override
         public String accion1() {
-            return nombre + "Ansioso de que regresaras(Nivel: " + nivelAgresividad + ").";
+            return nombre + " Ansioso de que regresaras(Nivel: " + nivelAgresividad + ").";
         }
     @Override
     public String accion2() {
-        return nombre + "Esta persiguiendo su cola (Nivel: " + nivelImperactividad + ").";
+        return nombre + " Esta persiguiendo su cola (Nivel: " + nivelImperactividad + ").";
     }
         @Override
         public String accion3(){
-            return nombre + "guau guau (Nivel: " + nivelAgresividad + ").";
+            return nombre + " Guau guau (Nivel: " + nivelAgresividad + ").";
         }
         @Override
 
         public String accion4(){
-            return nombre + "Esta escarbando la tierra (Nivel: " + nivelImperactividad + ").";
+            return nombre+" Esta escarbando la tierra (Nivel: " + nivelImperactividad + ").";
 
         }
         @Override
@@ -87,11 +87,11 @@ public class Perro extends Tamagotchi{
 
         @Override
         public String toString(){
-            return super.toString()+"|Especie: Tamagotchi";
+            return super.toString() + " | Especie: Perro | Imperactividad: " + nivelImperactividad + " | Agresividad: " + nivelAgresividad;
         }
         @Override
         public String obtenerDetallesEspecificos() {
-            return "Raza: Perro | Imperactividad: " + nivelImperactividad + " | Agresividad: " + nivelAgresividad;
+            return "Especie: Perro | Imperactividad: " + nivelImperactividad + " | Agresividad: " + nivelAgresividad;
         }
 
 

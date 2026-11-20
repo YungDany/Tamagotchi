@@ -73,19 +73,19 @@ private int nivelChill;
 
     @Override
     public String accion1() {
-        return ("Esta viendo el paisaje"+nivelChill);
+        return (nombre+"Esta viendo el paisaje(Nivel: "+nivelChill+").");
     }
 
     @Override
     public String accion2() {
-        return ("Esta arriba de un cocodrilo!!"+nivelSociable);
+        return (nombre+"Esta arriba de un cocodrilo!!(Nivel: "+nivelSociable+").");
     }
     public String accion3() {
-        return ("Esta acostado a tu lado"+nivelSociable);
+        return (nombre+"Esta acostado a tu lado(Nivel: "+nivelSociable+").");
     }
 
     public String accion4() {
-        return ("Esta descansando en el rio"+nivelChill);
+        return (nombre+"Esta descansando en el rio(Nivel: "+nivelChill+").");
     }
 
 
@@ -98,7 +98,8 @@ private int nivelChill;
     }
     @Override
     public String toString(){
-        return super.toString()+"|Especie: Tamagotchi";
+        return super.toString() + " | Especie: Capibara | Chill: " + nivelChill + " | Sociable: " + nivelSociable;
+
     }
 }
 

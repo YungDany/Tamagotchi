@@ -1,6 +1,7 @@
 package Modelo;
 
 public class Gato extends Tamagotchi{
+    private  boolean ronroneando;
  private int nivelIrritabilidad;
  private int nivelPereza;
 
@@ -8,14 +9,16 @@ public class Gato extends Tamagotchi{
 
     public Gato(String nombre, int hambre, int energia, int felicidad, int salud, boolean durmiendo, int nivelIrritabilidad, int nivelPereza) {
         super(nombre,hambre,energia,felicidad,salud,durmiendo);
-        this.nivelPereza = nivelPereza;
-        this.nivelIrritabilidad = nivelIrritabilidad;
+        this.nivelPereza = limitarRango(nivelPereza);
+        this.nivelIrritabilidad = limitarRango(nivelIrritabilidad);
+        this.ronroneando = false;
     }
 
     public Gato(String nombre) {
         super(nombre);
         this.nivelPereza = 50;
         this.nivelIrritabilidad =35;
+        this.ronroneando = false;
     }
 
     @Override
@@ -25,7 +28,7 @@ public class Gato extends Tamagotchi{
 
     @Override
     public String obtenerDetallesEspecificos() {
-        return "Raza: Gato | Irritabilidad: " + nivelIrritabilidad + " | Pereza: " + nivelPereza;
+        return "Especie: Gato | Irritabilidad: " + nivelIrritabilidad + " | Pereza: " + nivelPereza+"|Ronroneando: "+(ronroneando? "Si":"No");
     }
 
     @Override
@@ -78,19 +81,20 @@ public class Gato extends Tamagotchi{
 
     @Override
     public String accion1() {
-        return nombre + "se lame la pata con mucha calma(Nivel: " + nivelPereza + ").";
+        return nombre + " se lame la pata con mucha calma(Nivel: " + nivelPereza + ").";
 
     }
 
     @Override
     public String accion2() {
-        return nombre + "Esta maullando con fuerza(Nivel: " + nivelIrritabilidad + ").";
+        return nombre + " Esta maullando con fuerza(Nivel: " + nivelIrritabilidad + ").";
     }
     public String accion3() {
-        return "Esta ronroneando"+nivelPereza;
+        ronroneando = true;
+        return nombre +" Esta ronroneando(Nivel: "+nivelPereza+").";
     }
     public String accion4() {
-        return "Esta sacudiendo su cola con fuerza"+nivelIrritabilidad;
+        return nombre+ " Esta sacudiendo su cola con fuerza(Nivel: "+nivelIrritabilidad+").";
     }
 
 
@@ -98,20 +102,24 @@ public class Gato extends Tamagotchi{
         @Override
     public void dormir(){
         super.dormir();
-        setEnergia(energia+15);
-        this.nivelPereza=Math.min(100,this.nivelPereza+10);
+        setEnergia(limitarRango(energia+15));
+        setNivelPereza(nivelPereza+10);
+        ronroneando=true;
     }
-
+public boolean estaRonroneando(){
+        return ronroneando;
+}
     public void setNivelPereza(int nivelPereza) {
-        this.nivelPereza = nivelPereza;
+        this.nivelPereza = limitarRango(nivelPereza);
     }
 
     public void setNivelIrritabilidad(int nivelIrritabilidad) {
-        this.nivelIrritabilidad = nivelIrritabilidad;
+        this.nivelIrritabilidad = limitarRango(nivelIrritabilidad);
     }
     @Override
     public String toString(){
-        return super.toString()+"|Especie: Tamagotchi";
+        return super.toString() + " | Especie: Gato | Irritabilidad: " + nivelIrritabilidad + " | Pereza: " + nivelPereza+"| Ronroneando: "+ (ronroneando?"Si":"No");
+
     }
 }
 
