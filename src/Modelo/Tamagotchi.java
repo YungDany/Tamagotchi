@@ -96,16 +96,19 @@ public abstract class Tamagotchi implements TamagotchiActions{
     }
 
     public void pasarTiempo(){
+        if(!isLife()){
+            return;
+        }
         if(durmiendo){
-            setEnergia(this.energia+25);
-            setHambre(this.hambre+5);
+            setEnergia(limitarRango(this.energia+25));
+            setHambre(limitarRango(this.hambre+5));
             if(this.energia>=100){
                 this.durmiendo=false;
             }
         }else{
-            setHambre(this.hambre+10);
-            setEnergia(this.energia-8);
-            setFelicidad(this.felicidad-7);
+            setHambre(limitarRango(this.hambre+10));
+            setEnergia(limitarRango(this.energia-8));
+            setFelicidad(limitarRango(this.felicidad-7));
             if(this.hambre>=90||this.energia<=10){
                 setSalud(this.salud-10);
             }
@@ -125,7 +128,12 @@ public abstract class Tamagotchi implements TamagotchiActions{
 public String toString() {
     return (nombre+"|Hambre: "+hambre+"|Energia: "+ energia+"Felicidad: "+felicidad+"Salud: "+salud+"Despierto: "+durmiendo);
 }
-
+public boolean isLife(){
+    return salud>0;
+}
+public String despedida(){
+    return "¡" + nombre +"ha fallecido";
+}
 }
 
 

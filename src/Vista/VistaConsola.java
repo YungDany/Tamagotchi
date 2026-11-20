@@ -94,7 +94,10 @@ public class VistaConsola {
     public void mostrarTarjetaEstado(Tamagotchi t) {
         System.out.println("\n");
         System.out.println("Nombre: " + t.getNombre() + " (" + t.getClass().getSimpleName() + ")");
-        System.out.println(t.obtenDraw());
+        if(!t.obtenDraw().isEmpty()){
+            IO.println(t.obtenDraw());
+        }
+        IO.println("Estado de vida: "+ (t.isLife()?"Vivo":"Fallecido"));
         System.out.println("Estado de animo: " + t.obtenerEstadoAnimo().getDescripcion());
 
         if (t.estaDurmiendo()) {
@@ -134,4 +137,5 @@ public class VistaConsola {
         }
         return numero;
     }
+
 }

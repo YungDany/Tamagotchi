@@ -61,6 +61,14 @@ public class Controlador {
 
         while (enSubmenu) {
             int accion = vista.mostrarMenuInteraccion(seleccionada);
+            if (accion == 8) {
+                enSubmenu = false;
+                continue;
+            }
+            if (!seleccionada.isLife()) {
+                vista.mostrarMensaje("¡" + seleccionada.getNombre() + "ha fallecido ya no hay nada que hacer");
+                continue;
+            }
             switch (accion) {
                 case 1 -> {
                     TipoAlimento alimento = vista.seleccionarAlimento();
@@ -78,8 +86,8 @@ public class Controlador {
                 }
                 case 4 -> vista.mostrarMensaje(seleccionada.accion1());
                 case 5 -> vista.mostrarMensaje(seleccionada.accion2());
-                case 6 ->vista.mostrarMensaje(seleccionada.accion3());
-                case 7 ->vista.mostrarMensaje(seleccionada.accion4());
+                case 6 -> vista.mostrarMensaje(seleccionada.accion3());
+                case 7 -> vista.mostrarMensaje(seleccionada.accion4());
                 case 8 -> enSubmenu = false;
             }
         }
@@ -107,5 +115,10 @@ public class Controlador {
         }
         coleccion.avanzarTiempoTodos();
         vista.mostrarMensaje("Han pasado unas horas... Las estadísticas han cambiado.");
+        for (Tamagotchi t : coleccion.getLista()) {
+            if (!t.isLife()) {
+                vista.mostrarMensaje(t.despedida());
+            }
+        }
     }
 }
