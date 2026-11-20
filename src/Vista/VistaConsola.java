@@ -64,8 +64,11 @@ public class VistaConsola {
         System.out.println("3. Dormir");
         System.out.println("4. Comportamiento especial 1");
         System.out.println("5. Comportamiento especial 2");
-        System.out.println("6. Volver al menu");
-        return leerEntero("Que deseas hacer?: ", 1, 6);
+        IO.println("6.Comportamiento especial 3");
+        IO.println("7.Comportamiento especial 4");
+        System.out.println("8. Volver al menu");
+
+        return leerEntero("Que deseas hacer?: ", 1, 8);
     }
 
     public TipoAlimento seleccionarAlimento() {

@@ -67,6 +67,8 @@ private int nivelChillido;
         setEnergia(limitarRango(energia - juego.getGastoEnergetico()));
         setHambre(limitarRango(hambre +7 ));
         setNivelMiedo( nivelMiedo-15 );
+        IO.println(nombre +"jugo" +juego.getNombre());
+
     }
     @Override
     public String accion1() {

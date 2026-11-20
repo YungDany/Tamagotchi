@@ -72,6 +72,8 @@ public class Gato extends Tamagotchi{
         setHambre(limitarRango(hambre +15 ));
         setNivelPereza(nivelPereza -7 );
         setNivelIrritabilidad(nivelIrritabilidad-9);
+        IO.println(nombre +"jugo" +juego.getNombre());
+
     }
 
     @Override

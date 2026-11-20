@@ -67,6 +67,8 @@ private int nivelChill;
         setEnergia(limitarRango(energia - juego.getGastoEnergetico()));
         setHambre(limitarRango(hambre +8 ));
         setNivelSociable(nivelSociable+8);
+        IO.println(nombre +"jugo" +juego.getNombre());
+
     }
 
     @Override

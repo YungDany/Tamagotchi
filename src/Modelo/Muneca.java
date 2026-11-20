@@ -68,6 +68,8 @@ package Modelo;
             setEnergia(limitarRango(energia - juego.getGastoEnergetico()));
             setHambre(limitarRango(hambre +5 ));
             setNivelCoqueta(nivelCoqueta +8 );
+            IO.println(nombre +"jugo" +juego.getNombre());
+
         }
 
         @Override

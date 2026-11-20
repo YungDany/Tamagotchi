@@ -76,9 +76,11 @@ public class Controlador {
                     seleccionada.dormir();
                     vista.mostrarMensaje(seleccionada.getNombre() + " se ha ido a dormir.");
                 }
-                case 4 -> vista.mostrarMensaje(seleccionada.mostrarComportamientoUnico());
-                case 5 -> vista.mostrarMensaje(seleccionada.mostrarComportamientoUnico2());
-                case 6 -> enSubmenu = false;
+                case 4 -> vista.mostrarMensaje(seleccionada.accion1());
+                case 5 -> vista.mostrarMensaje(seleccionada.accion2());
+                case 6 ->vista.mostrarMensaje(seleccionada.accion3());
+                case 7 ->vista.mostrarMensaje(seleccionada.accion4());
+                case 8 -> enSubmenu = false;
             }
         }
     }
