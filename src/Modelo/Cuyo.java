@@ -3,7 +3,7 @@ package Modelo;
 public class Cuyo extends Tamagotchi{
 private int nivelMiedo;
 private int nivelChillido;
-    public Cuyo(String nombre, int hambre, int energia, int felicidad, int salud, boolean durmiendo,int nivelMiedo,int nivelChillido) {
+    public Cuyo(String nombre, int hambre, int energia, int felicidad, int salud, boolean durmiendo, int nivelMiedo, int nivelChillido) {
         super(nombre, hambre, energia, felicidad, salud, durmiendo);
         this.nivelMiedo=limitarRango(nivelMiedo);
         this.nivelChillido=limitarRango(nivelChillido);

@@ -3,7 +3,7 @@ package Modelo;
 public class Capibara extends Tamagotchi{
 private int nivelChill;
  private int nivelSociable;
-    public Capibara(String nombre, int hambre, int energia, int felicidad, int salud, boolean durmiendo,int nivelChill,int nivelSociable) {
+    public Capibara(String nombre, int hambre, int energia, int felicidad, int salud, boolean durmiendo, int nivelChill, int nivelSociable) {
         super(nombre, hambre, energia, felicidad, salud, durmiendo);
         this.nivelChill=limitarRango(nivelChill);
         this.nivelSociable=limitarRango(nivelSociable);

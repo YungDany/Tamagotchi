@@ -14,19 +14,19 @@ public abstract class Tamagotchi implements TamagotchiActions{
     }
 
     public void setHambre(int hambre) {
-        this.hambre = hambre;
+        this.hambre = limitarRango(hambre);
     }
 
     public void setEnergia(int energia) {
-        this.energia = energia;
+        this.energia = limitarRango(energia);
     }
 
     public void setFelicidad(int felicidad) {
-        this.felicidad = felicidad;
+        this.felicidad = limitarRango(felicidad);
     }
 
     public void setSalud(int salud) {
-        this.salud = salud;
+        this.salud = limitarRango(salud);
     }
 
     public String getNombre() {
@@ -60,7 +60,7 @@ public abstract class Tamagotchi implements TamagotchiActions{
     public boolean estaDurmiendo(){
         return durmiendo;
     }
-    public Tamagotchi(String nombre, int hambre, int energia,int felicidad, int salud,boolean durmiendo){
+    public Tamagotchi(String nombre, int hambre, int energia, int felicidad, int salud, boolean durmiendo){
         this.nombre=nombre;
         this.hambre=limitarRango(hambre);
         this.energia=limitarRango(energia);
